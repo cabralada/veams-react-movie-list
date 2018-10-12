@@ -1,0 +1,39 @@
+{
+  "@veams/generator-veams": {
+    "projectName": "veams react movie list",
+    "projectType": "single-page-app",
+    "taskRunner": "webpack",
+    "templateEngine": [],
+    "server": [
+      "serverFakeData"
+    ],
+    "gruntModules": [],
+    "features": [],
+    "jsLibs": [
+      "redux",
+      "rxjs"
+    ],
+    "cssLibs": [
+      "include-media"
+    ],
+    "testAndQA": true,
+    "testAndQALibs": [
+      "husky",
+      "stylelint",
+      "eslint"
+    ],
+    "veamsPackages": true,
+    "docs": [],
+    "icons": [
+      "sprite",
+      "grunticon"
+    ],
+    "images": [
+      "imgResponsive",
+      "imgLazyLoad"
+    ],
+    "cssPostProcessors": [
+      "autoprefixer"
+    ]
+  }
+}
