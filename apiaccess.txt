@@ -1,0 +1,7 @@
+https://www.themoviedb.org/settings/api
+
+api key: 396c6582c8887a8bc760a57e305681d9
+API Read Access Token (v4 auth): eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOTZjNjU4MmM4ODg3YThiYzc2MGE1N2UzMDU2ODFkOSIsInN1YiI6IjViYzBhYzU4MGUwYTI2NmU1ZDAxOWExMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fyg-L1CSVNF5hwSGsDkOzjv0lY2Bx0LRwXln1WKFN6A
+
+sample: https://api.themoviedb.org/3/movie/550?api_key=396c6582c8887a8bc760a57e305681d9
+
