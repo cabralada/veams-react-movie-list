@@ -10,5 +10,4 @@ router.get(['*'], index);
 // Additional routes
 router.use([serverHosts]);
 
-
 module.exports = router;

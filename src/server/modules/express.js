@@ -5,13 +5,13 @@ const reload = require('./reload');
 
 module.exports = (routes, apiRoutes) => {
 	const app = express();
-	
+
 	if (process.env.NODE_ENV === 'local') {
 		app.use(reload());
 	}
-	
+
 	app.use(express.static('app'));
-	app.use(bodyParser.urlencoded({extended: false}));
+	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(bodyParser.json());
 	app.use(morgan('dev'));
 

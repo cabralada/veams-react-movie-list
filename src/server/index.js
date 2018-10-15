@@ -16,7 +16,7 @@ setImmediate(() => {
 			'info',
 			`Express server listening on http://${config.ip}:${config.port}, in ${
 				config.env
-				} environment.\n`
+			} environment.\n`
 		);
 	});
 });

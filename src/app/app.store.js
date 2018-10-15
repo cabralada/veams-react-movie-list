@@ -27,9 +27,8 @@ const INITIAL_STATE = {
 /**
  * Epics (Async)
  */
-export const ROOT_EPIC = combineEpics(
-	// i18nFetchEpic
-);
+export const ROOT_EPIC = combineEpics();
+// i18nFetchEpic
 
 /**
  * Reducer

@@ -1,4 +1,4 @@
-// Global Packages 
+// Global Packages
 import 'lazysizes';
 import { environment } from 'env';
 
@@ -19,25 +19,25 @@ import EVENTS from './app.events';
 
 // Veams
 Veams.onInitialize(() => {
-    /**
-    * Veams Plugins
-    */
-    
-    // Vent Plugin
-    Veams.use(VeamsVent, {
-        furtherEvents: EVENTS
-    });
+	/**
+	 * Veams Plugins
+	 */
 
-    // Logger Plugin for devmode and logger
-    Veams.use(VeamsLogger);
+	// Vent Plugin
+	Veams.use(VeamsVent, {
+		furtherEvents: EVENTS
+	});
 
-    // Media Query Handler Plugin
-    Veams.use(VeamsMediaQueryHandler);
-    
-    // Trigger global scroll event
-    window.onscroll = throttle((e) => {
-        Veams.Vent.trigger(Veams.EVENTS.scroll, e);
-    }, 200);
+	// Logger Plugin for devmode and logger
+	Veams.use(VeamsLogger);
+
+	// Media Query Handler Plugin
+	Veams.use(VeamsMediaQueryHandler);
+
+	// Trigger global scroll event
+	window.onscroll = throttle(e => {
+		Veams.Vent.trigger(Veams.EVENTS.scroll, e);
+	}, 200);
 });
 
 export { Veams };

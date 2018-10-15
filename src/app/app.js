@@ -1,4 +1,3 @@
-
 /**
  * Main entry file for styles.
  */
@@ -20,10 +19,10 @@ import store, { history } from './app.store';
  * Render application
  */
 ReactDOM.render(
-    <Provider store={store}>
-        <Router history={history}>
-            <div className="app">{renderRoutes(routes)}</div>
-        </Router>
-    </Provider>,
-    document.querySelector('#root')
-); 
+	<Provider store={store}>
+		<Router history={history}>
+			<div className="app">{renderRoutes(routes)}</div>
+		</Router>
+	</Provider>,
+	document.querySelector('#root')
+);
