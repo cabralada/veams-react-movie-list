@@ -16,7 +16,7 @@ import Home from './shared/components/home/home';
  */
 
 const Cabralada = () => {
-	return <div>Test component page</div>;
+	return <div>Component test page</div>;
 };
 
 const appRouters = [

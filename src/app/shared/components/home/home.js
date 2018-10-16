@@ -5,11 +5,10 @@ import { connect } from 'react-redux';
 // import { object } from 'prop-types';
 
 // Containers, Components, Store & More
-import store from './../../../app.store';
+// import store from './../../../app.store';
 // import * as fromData from '../../store/home.selectors';
 import { bindActionCreators } from 'redux';
 import { fetchContent } from './../../../core/store/appactions';
-import Appcta from '../appcta/appcta';
 
 /**
  * Get slice out of current state by using selector functions.
@@ -28,12 +27,6 @@ function mapDispatchToProps(dispatch) {
 // @connect(mapStateToProps)
 
 class Home extends Component {
-	constructor(props) {
-		super(props);
-
-		console.log(props);
-	}
-
 	componentDidMount() {
 		this.props.fetchContent();
 	}
@@ -47,8 +40,6 @@ class Home extends Component {
 		return (
 			<div>
 				<p>Which movie your are looking for?</p>
-
-				<Appcta type="a" goto="http://google.com" text="test button" />
 
 				<form>
 					<input type="text" />
