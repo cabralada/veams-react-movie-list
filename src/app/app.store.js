@@ -6,6 +6,7 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import reducers from './core/store/appreducers';
 import ReduxPromise from 'redux-promise';
+import thunk from 'redux-thunk';
 
 /**
  * Global Stuff
@@ -50,9 +51,10 @@ let store = createStore(
 	INITIAL_STATE,
 	composeEnhancers(
 		applyMiddleware(
-			reduxImmutableStateInvariant(),
-			createEpicMiddleware(ROOT_EPIC),
-			routerMiddleware(history)
+			thunk
+			//reduxImmutableStateInvariant(),
+			//createEpicMiddleware(ROOT_EPIC),
+			//routerMiddleware(history)
 		)
 	)
 );

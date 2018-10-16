@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // import { object } from 'prop-types';
 
 // Containers, Components, Store & More
-// import store from './../../../app.store';
+import store from './../../../app.store';
 // import * as fromData from '../../store/home.selectors';
 import { bindActionCreators } from 'redux';
 import { fetchContent } from './../../../core/store/appactions';
@@ -15,8 +15,8 @@ import { fetchContent } from './../../../core/store/appactions';
  *
  * @param {object} state - Current state of the whole store.
  */
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ fetchContent }, dispatch);
+function mapStateToProps(state) {
+	return bindActionCreators({ fetchContent }, state);
 }
 
 /**
@@ -27,8 +27,24 @@ function mapDispatchToProps(dispatch) {
 // @connect(mapStateToProps)
 
 class Home extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			data: []
+		};
+	}
+
+	shouldComponentUpdate(nextProps, nextState) {
+		console.log('nextProps', nextProps);
+		console.log('nextState', nextState);
+		return false;
+	}
+
 	componentDidMount() {
-		this.props.fetchContent();
+		this.setState({
+			data: this.props.fetchContent()
+		});
 	}
 
 	/**
@@ -36,6 +52,9 @@ class Home extends Component {
 	 */
 	render() {
 		// const { entities } = this.props;
+		// console.log(this.props);
+		// console.log(this.state);
+		// console.log(this.reducers);
 
 		return (
 			<div>
@@ -55,5 +74,5 @@ class Home extends Component {
 
 export default connect(
 	null,
-	mapDispatchToProps
+	mapStateToProps
 )(Home);
