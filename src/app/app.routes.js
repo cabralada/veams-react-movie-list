@@ -8,16 +8,26 @@
 
 import React from 'react';
 import AppCore from './core';
-import { renderRoutes } from 'react-router-config';
-import { Link } from 'react-router-dom';
+
+import Home from './shared/components/home/home';
 
 /**
  * A simple home page route.
  */
-const HomePage = [
+
+const Cabralada = () => {
+	return <div>Test component page</div>;
+};
+
+const appRouters = [
 	{
-		component: () => <h3>My Home Page</h3>,
+		component: () => <Home />,
 		path: '/',
+		exact: true
+	},
+	{
+		component: () => <Cabralada />,
+		path: '/cabralada',
 		exact: true
 	}
 ];
@@ -26,37 +36,38 @@ const HomePage = [
  * Demo case to show nested routes.
  * Therefore we use react-router-config to render the routes which are provided in props.
  */
-const TestRoutes = [
-	{
-		component: ({ route }) => {
-			return (
-				<div>
-					<h3>My Test Page</h3>
-					<ul>
-						<li>
-							<Link to="/test/subpage">One sub page</Link>
-						</li>
-					</ul>
-					<div className="sub-routes">{renderRoutes(route.routes)}</div>
-				</div>
-			);
-		},
-		path: '/test',
-		routes: [
-			{
-				path: '/test/subpage',
-				component: () => {
-					return (
-						<div className="sub-page">
-							<h4>My sub page</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-						</div>
-					);
-				}
-			}
-		]
-	}
-];
+// const TestRoutes = [
+// 	{
+
+// 		component: ({ route }) => {
+// 			return (
+// 				<div>
+// 					<h3>My Test Page</h3>
+// 					<ul>
+// 						<li>
+// 							<Link to="/test/subpage">One sub page</Link>
+// 						</li>
+// 					</ul>
+// 					<div className="sub-routes">{renderRoutes(route.routes)}</div>
+// 				</div>
+// 			);
+// 		},
+// 		path: '/test',
+// 		routes: [
+// 			{
+// 				path: '/test/subpage',
+// 				component: () => {
+// 					return (
+// 						<div className="sub-page">
+// 							<h4>My sub page</h4>
+// 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+// 						</div>
+// 					);
+// 				}
+// 			}
+// 		]
+// 	}
+// ];
 
 /**
  * Bring all routes together
@@ -64,6 +75,6 @@ const TestRoutes = [
 export default [
 	{
 		component: AppCore,
-		routes: [].concat(HomePage, TestRoutes)
+		routes: [].concat(appRouters)
 	}
 ];

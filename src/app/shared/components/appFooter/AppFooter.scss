@@ -1,0 +1,15 @@
+.c-footer {
+	font-size: .7rem;
+	padding: .5rem 1rem;
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+
+	ul {
+		li {
+			display: inline-block;
+			margin: 0 5px;
+			opacity: .3;
+		}
+	}
+}

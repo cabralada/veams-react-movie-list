@@ -7,7 +7,7 @@ Main File For Imports
 // Global Variables and Settings
 @import "shared/styles/shared";
 
-// Frameworks 
+// Frameworks
 // Media Queries in JS
 @import "~@veams/plugin-media-query-handler/scss/media-query-handler";
 
@@ -21,4 +21,6 @@ Main File For Imports
 // Components
 @import "core/containers/core/core";
 @import "core/layouts/layout";
+@import "shared/components/appFooter/AppFooter";
+@import "shared/components/appHeader/AppHeader";
 @import "core/components/section/section";

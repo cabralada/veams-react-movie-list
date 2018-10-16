@@ -4,6 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
+import reducers from './core/store/appreducers';
 
 /**
  * Global Stuff
@@ -36,7 +37,8 @@ export const ROOT_EPIC = combineEpics();
 const ROOT_REDUCER = combineReducers({
 	// i18n: i18nReducer,
 	// ui: uiReducer,
-	router: routerReducer
+	router: routerReducer,
+	reducers
 });
 
 /**

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
  * Custom Components
  */
 import Section from '../components/section/section';
+import AppHeader from '../../shared/components/appHeader/AppHeader';
+import AppFooter from '../../shared/components/appFooter/AppFooter';
 
 /**
  * General Layout
@@ -13,11 +15,7 @@ export default class Layout extends Component {
 	render() {
 		return (
 			<Fragment>
-				<header className="r-header">
-					<div className="header__container is-container">
-						<h2 className="header__headline">HEADER</h2>
-					</div>
-				</header>
+				<AppHeader />
 				<main className="r-main">
 					<div className="main__container">
 						<nav>
@@ -26,7 +24,7 @@ export default class Layout extends Component {
 									<Link to="/">Home Route</Link>
 								</li>
 								<li>
-									<Link to="/test">Test Route</Link>
+									<Link to="/cabralada">Cabralada</Link>
 								</li>
 							</ul>
 						</nav>
@@ -36,11 +34,7 @@ export default class Layout extends Component {
 						</Section>
 					</div>
 				</main>
-				<footer className="r-footer">
-					<div className="footer__container is-container">
-						<h2 className="footer__headline">FOOTER</h2>
-					</div>
-				</footer>
+				<AppFooter />
 			</Fragment>
 		);
 	}
