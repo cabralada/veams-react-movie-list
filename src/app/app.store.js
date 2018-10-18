@@ -39,7 +39,7 @@ export const ROOT_EPIC = combineEpics();
 const ROOT_REDUCER = combineReducers({
 	// i18n: i18nReducer,
 	// ui: uiReducer,
-	reducers,
+	movies: reducers,
 	router: routerReducer
 });
 

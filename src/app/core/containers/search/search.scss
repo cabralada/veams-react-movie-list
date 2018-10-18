@@ -1,0 +1,25 @@
+[data-c-search] {
+	box-sizing: border-box;
+	max-width: 40rem;
+	padding: 1rem 0 3rem;
+	margin: 0 auto;
+	text-align: center;
+
+	input {
+		margin-top: 1rem;
+		width: 100%;
+		padding: 5px;
+		font-size: 1.4rem;
+		text-align: center;
+		box-sizing: border-box;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	p {
+		font-size: 2rem;
+		font-weight: 900;
+	}
+}

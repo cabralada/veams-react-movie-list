@@ -11,12 +11,7 @@ html {
 
 body {
 	font-family: Arial, sans-serif;
-}
-
-img {
-	display: inline-block;
-	height: auto;
-	max-width: 100%;
+	margin-bottom: 28px;
 }
 
 // styling of console output element (triggered by parameter 'devmode' and 'logger' in url)
@@ -34,4 +29,25 @@ img {
 	z-index: 9999;
 	border-radius: 10px;
 	border: 10px solid red;
+}
+
+[data-c-pagination] {
+	overflow: hidden;
+
+	.pagination {
+		font-size: 2rem;
+		padding: 2rem;
+		float: right;
+		width: calc(50% - 4rem);
+		cursor: pointer;
+
+		& + .pagination {
+			text-align: right;
+		}
+
+		&:hover {
+			background: black;
+			color: white;
+		}
+	}
 }

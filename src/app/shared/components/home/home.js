@@ -4,19 +4,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { object } from 'prop-types';
 
-// Containers, Components, Store & More
-import store from './../../../app.store';
 // import * as fromData from '../../store/home.selectors';
 import { bindActionCreators } from 'redux';
 import { fetchContent } from './../../../core/store/appactions';
+import Movielists from '../../../core/features/movielists/movielists';
+import SearchMovie from '../../../core/containers/search/search';
+import Pagination from '../../../core/features/pagination/pagination';
+
+let counter;
 
 /**
  * Get slice out of current state by using selector functions.
  *
  * @param {object} state - Current state of the whole store.
  */
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({ fetchContent }, dispatch);
+}
+
 function mapStateToProps(state) {
-	return bindActionCreators({ fetchContent }, state);
+	return {
+		movies: state.movies
+	}
 }
 
 /**
@@ -26,53 +35,77 @@ function mapStateToProps(state) {
  */
 // @connect(mapStateToProps)
 
+
 class Home extends Component {
-	constructor(props) {
-		super(props);
+
+	constructor() {
+		super();
 
 		this.state = {
-			data: []
-		};
-	}
+			counter : 1
+		}
 
-	shouldComponentUpdate(nextProps, nextState) {
-		console.log('nextProps', nextProps);
-		console.log('nextState', nextState);
-		return false;
+		this.timeout = null;
 	}
 
 	componentDidMount() {
-		this.setState({
-			data: this.props.fetchContent()
-		});
+		this.props.fetchContent(this.state.counter)
+	}
+
+	buildContent = (page) => {
+		if(this.timeout === null) {
+			this.timeout = window.setTimeout(() => {
+				this.timeout = null;
+				switch(page) {
+					case 'next':
+						this.state.counter++
+						this.props.fetchContent(this.state.counter)
+						break;
+					case 'prev':
+						if(this.state.counter < 2) return
+						this.state.counter--
+						this.props.fetchContent(this.state.counter)
+						break;
+					default:
+						this.props.fetchContent(1)
+				}
+			}, 300);
+		}
+	}
+
+	addPage = () => {
+		this.buildContent('next')
+	}
+
+	prevPage = () => {
+		this.buildContent('prev');
 	}
 
 	/**
 	 * Render component
 	 */
 	render() {
-		// const { entities } = this.props;
-		// console.log(this.props);
-		// console.log(this.state);
-		// console.log(this.reducers);
+		if (typeof this.props.movies.movies === 'undefined') {
+			return <div>Loading data</div>
+		}
+
+		const { movies } = this.props.movies
+		const initMoviesList = movies.results
 
 		return (
 			<div>
-				<p>Which movie your are looking for?</p>
-
-				<form>
-					<input type="text" />
-				</form>
-
-				<ul>
-					<li>movie name</li>
-				</ul>
+				<SearchMovie/>
+				<Movielists listData={initMoviesList} />
+				<Pagination
+				addPage = {this.addPage}
+				prevPage = {this.prevPage}
+				counter={this.state.counter} />
 			</div>
 		);
 	}
 }
 
 export default connect(
-	null,
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(Home);
