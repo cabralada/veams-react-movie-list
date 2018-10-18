@@ -1,7 +1,7 @@
 // Generic libraries
 import React from 'react';
 
-const SearchMovie =  (props) => {
+const SearchMovie = props => {
 	return (
 		<form data-c-search>
 			<p>Which movie your are looking for?</p>

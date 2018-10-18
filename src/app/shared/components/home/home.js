@@ -25,7 +25,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
 	return {
 		movies: state.movies
-	}
+	};
 }
 
 /**
@@ -35,71 +35,70 @@ function mapStateToProps(state) {
  */
 // @connect(mapStateToProps)
 
-
 class Home extends Component {
-
 	constructor() {
 		super();
 
 		this.state = {
-			counter : 1
-		}
+			counter: 1
+		};
 
 		this.timeout = null;
 	}
 
 	componentDidMount() {
-		this.props.fetchContent(this.state.counter)
+		this.props.fetchContent(this.state.counter);
 	}
 
-	buildContent = (page) => {
-		if(this.timeout === null) {
+	buildContent = page => {
+		if (this.timeout === null) {
 			this.timeout = window.setTimeout(() => {
 				this.timeout = null;
-				switch(page) {
+				switch (page) {
 					case 'next':
-						this.state.counter++
-						this.props.fetchContent(this.state.counter)
+						this.state.counter++;
+						this.props.fetchContent(this.state.counter);
 						break;
 					case 'prev':
-						if(this.state.counter < 2) return
-						this.state.counter--
-						this.props.fetchContent(this.state.counter)
+						if (this.state.counter < 2) return;
+						this.state.counter--;
+						this.props.fetchContent(this.state.counter);
 						break;
 					default:
-						this.props.fetchContent(1)
+						this.props.fetchContent(1);
 				}
 			}, 300);
 		}
-	}
+	};
 
 	addPage = () => {
-		this.buildContent('next')
-	}
+		this.buildContent('next');
+	};
 
 	prevPage = () => {
 		this.buildContent('prev');
-	}
+	};
 
 	/**
 	 * Render component
 	 */
 	render() {
 		if (typeof this.props.movies.movies === 'undefined') {
-			return <div>Loading data</div>
+			return <div>Loading data</div>;
 		}
 
-		const { movies } = this.props.movies
-		const initMoviesList = movies.results
+		const { movies } = this.props.movies;
+		const initMoviesList = movies.results;
 
 		return (
 			<div>
-				<SearchMovie/>
+				<SearchMovie />
 				<Movielists listData={initMoviesList} />
 				<Pagination
-				addPage = {this.addPage}
-				prevPage = {this.prevPage}
-				counter={this.state.counter} />
+					addPage={this.addPage}
+					prevPage={this.prevPage}
+					counter={this.state.counter}
+				/>
 			</div>
 		);
 	}
